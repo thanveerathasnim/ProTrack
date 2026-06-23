@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ProTrack — To-Do List</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">🌿 ProTrack</a>
+    <div class="nav-links">
+      <a href="dashboard.html">Dashboard</a>
+      <a href="habits.html">Habits</a>
+      <a href="goals.html">Goals</a>
+      <a href="progress.html">Progress</a>
+      <a href="login.html" class="btn-nav" onclick="logoutUser()">Logout</a>
+    </div>
+  </nav>
+
+  <!-- TODO BODY -->
+  <div class="dashboard">
+
+    <div class="page-header">
+      <h2>✅ My To-Do List</h2>
+      <p>Plan your day, one task at a time</p>
+    </div>
+
+    <!-- NOTIFICATION BANNER -->
+    <div class="reminder-banner" id="todoBanner">
+      <span>🔔</span>
+      <p>You haven't added any tasks yet! Add your first task below 🌱</p>
+    </div>
+
+    <!-- ADD TODO -->
+    <div class="add-habit-card">
+      <h3>Add a New Task</h3>
+      <div class="add-todo-row">
+        <input type="text" id="todoInput" placeholder="e.g. Submit assignment..." />
+        <select id="todoPriority">
+          <option value="high">🔴 High</option>
+          <option value="medium" selected>🟡 Medium</option>
+          <option value="low">🟢 Low</option>
+        </select>
+        <button onclick="addTodo()">+ Add Task</button>
+      </div>
+    </div>
+
+    <!-- TODO LIST -->
+    <div class="dash-card" style="margin-top: 24px;">
+      <div class="dash-card-header">
+        <h3>Today's Tasks</h3>
+        <span id="todo-count">0 of 0 done</span>
+      </div>
+      <ul class="habit-list" id="todoList"></ul>
+      <p class="empty-msg" id="todoEmptyMsg">No tasks yet. Add one above! ✅</p>
+    </div>
+
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>checkLogin();</script>
+  <script src="js/todo.js"></script>
+
+</body>
+</html>

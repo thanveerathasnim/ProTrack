@@ -14,6 +14,7 @@
     <a href="index.html" class="logo">🌿 ProTrack</a>
     <div class="nav-links">
       <a href="habits.html">Habits</a>
+      <a href="todo.html">To-Do</a>
       <a href="goals.html">Goals</a>
       <a href="progress.html">Progress</a>
      <a href="#" onclick="logoutUser()" class="btn-nav">Logout</a>
@@ -88,6 +89,18 @@
   </p>
 </div>
 
+<!-- TODO PREVIEW -->
+<div class="dash-card">
+  <div class="dash-card-header">
+    <h3>✅ Today's Tasks</h3>
+    <a href="todo.html">View All →</a>
+  </div>
+  <div id="dashTodoList"></div>
+  <p class="empty-msg" id="dashTodoEmpty">
+    No tasks yet!
+    <a href="todo.html" style="color:#87A878; font-weight:500;">Add tasks →</a>
+  </p>
+</div>
       <!-- DAILY QUOTE -->
       <div class="dash-card quote-card">
         <p class="quote-text">"Small daily improvements are the key to staggering long-term results."</p>
@@ -170,6 +183,26 @@
       goalList.appendChild(div);
     });
   }
+  // ===== TODO PREVIEW ON DASHBOARD =====
+const todos = JSON.parse(localStorage.getItem('todos')) || [];
+const dashTodoList = document.getElementById('dashTodoList');
+const dashTodoEmpty = document.getElementById('dashTodoEmpty');
+
+if (todos.length === 0) {
+  dashTodoEmpty.style.display = 'block';
+} else {
+  dashTodoEmpty.style.display = 'none';
+  const priorityEmoji = p => p === 'high' ? '🔴' : p === 'medium' ? '🟡' : '🟢';
+  todos.slice(0, 3).forEach(todo => {
+    const div = document.createElement('div');
+    div.className = 'habit-item' + (todo.done ? ' done' : '');
+    div.innerHTML = `
+      <span class="habit-check ${todo.done ? '' : 'empty'}">${todo.done ? '✓' : '○'}</span>
+      <span>${priorityEmoji(todo.priority)} ${todo.name}</span>
+    `;
+    dashTodoList.appendChild(div);
+  });
+}
 </script>
 </body>
 </html>
