@@ -1039,3 +1039,22 @@ footer {
 .add-todo-row input[type="datetime-local"]:focus {
   border-color: #87A878;
 }
+
+
+/* ===== TODO DASHBOARD ITEM ===== */
+.todo-dash-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #f0ebe2;
+}
+
+.todo-dash-item:last-child {
+  border-bottom: none;
+}
+
+.overdue-fill {
+  background-color: #c0392b !important;
+}
+
+.soon-fill {
+  background-color: #C9A84C !important;
+}
