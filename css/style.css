@@ -1058,3 +1058,40 @@ footer {
 .soon-fill {
   background-color: #C9A84C !important;
 }
+
+
+/* ===== TODO PREVIEW CARD ===== */
+.todo-preview-card {
+  grid-column: span 2;
+}
+
+.todo-progress-summary {
+  margin-bottom: 16px;
+}
+
+.todo-summary-bar {
+  background-color: #e0ddd6;
+  border-radius: 10px;
+  height: 8px;
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+
+.todo-summary-fill {
+  background-color: #87A878;
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.5s ease;
+}
+
+.todo-summary-text {
+  font-size: 0.8rem;
+  color: #6b5744;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .todo-preview-card {
+    grid-column: span 1;
+  }
+}
